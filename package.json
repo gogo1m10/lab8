@@ -1,0 +1,27 @@
+{
+  "name": "lab8",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gogo1m10/lab8.git"
+  },
+  "author": "Gautier Picard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gogo1m10/lab8/issues"
+  },
+  "homepage": "https://github.com/gogo1m10/lab8#readme",
+  "dependencies": {
+    "ejs": "^3.0.2",
+    "express": "^4.17.1",
+    "handlebars": "^4.7.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}

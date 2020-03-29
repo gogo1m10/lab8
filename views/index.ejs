@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>US Quiz (Express)</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+</head>
+<body class="text-center">
+
+  <h1 class="jumbotron"> US Geography Quiz <br> Express Version </h1>
+
+  <form action="/results" method="post">
+    <h3><span id="markImg1"></span> What is the capital of California?</h3>
+    <input type="text" id="q1">
+    <br><br>
+    <div id="q1Feedback"></div>
+    <br>
+
+    <h3><span id="markImg2"></span>What is the longest river?</h3>
+      <select id="q2">
+          <option value="">Select One</option>
+          <option value="ms">Mississippi</option>
+          <option value="mo">Missouri</option>
+          <option value="co">Colorado</option>
+          <option value="de">Delaware</option>
+      </select>
+      <br><br>
+    <div id="q2Feedback"></div>
+    <br>
+
+      <h3><span id="markImg3"></span>What presidents are carved into mount Rushmore?</h3>
+      <input type="checkbox" id="Jackson">   <label for="Jackson"> A. Jackson    </label>
+      <input type="checkbox" id="Franklin">  <label for="Franklin">B. Franklin  </label>
+      <input type="checkbox" id="Jefferson"> <label for="Jefferson">T. Jefferson</label>
+      <input type="checkbox" id="Roosevelt"> <label for="Roosevelt">T. Roosevelt</label>
+      <br><br>
+      <div id="q3Feedback"></div>
+      <br>
+
+  	<h3><span id="markImg4"></span>What is the smallest US state?</h3>
+  	<div id="q4Choices"> </div>
+    <br><br>
+    <div id="q4Feedback"></div>
+    <br>
+
+      <h3><span id="markImg5"></span>Which is the correct seal of California?</h3>
+      <img src="/img/seal1.png" alt= "seal1" class="q5choice" id="seal1">
+      <img src="/img/seal2.png" alt= "seal2" class="q5choice" id="seal2">
+      <img src="/img/seal3.png" alt= "seal3" class="q5choice" id="seal3">
+
+  	<br><br>
+      <div id="q5Feedback"></div>
+      <br>
+
+      <h3><span id="markImg6"></span>When was the Declaration of Independance signed ?</h3>
+      <input type="date" id="q6">
+      <br><br>
+      <div id="q6Feedback"></div>
+      <br>
+      <h3><span id="markImg7"></span>How many presidents of the US have there been so far ?</h3>
+      <input type="number" name="quantity" min="1" max="100" placeholder="0">
+      <br><br>
+      <div id="q7Feedback"></div>
+      <br>
+      <h3><span id="markImg8"></span>What are the three colors of the flag of the US ?<br>(Keep it simple... or click <span style="cursor:pointer" onclick="hint()">here</span> for a hint)</h3>
+      <input type="color" id="color1" name="color1"><br><br>
+      <input type="color" id="color2" name="color2"><br><br>
+      <input type="color" id="color3" name="color3">
+      <br><br>
+      <div id="q8Feedback"></div>
+      <br>
+
+      <button class="btn btn-outline-success"> Submit Quiz </button>
+      <br><br>
+    </form>
+    <h2 id="totalScore" class="text-info"></h2>
+
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+     <script>
+       $(document).ready(function(){
+
+         //Event Listeners
+         $(".q5choice").on("click", function(){
+         	$(".q5choice").css("background-color",""); //resets background color
+         	$(this).css("background-color","rgb(255, 255, 0)");
+        });
+
+      });//ready
+
+      displayQ4Choices();
+
+      function displayQ4Choices() {
+          let q4ChoicesArray = ["Maine", "Rhode Island", "Maryland", "Delaware"];
+          q4ChoicesArray = _.shuffle(q4ChoicesArray);
+          for (let i = 0; i < q4ChoicesArray.length; i++) {
+            $("#q4Choices").append(` <input type="radio" name="q4" id="${q4ChoicesArray[i]}" value="${q4ChoicesArray[i]}"> <label for="${q4ChoicesArray[i]}"> ${q4ChoicesArray[i]}</label>`);
+          }
+      } // Display Q4 choices
+     </script>
+
+</body>
+</html>
